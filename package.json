@@ -2,11 +2,10 @@
   "name": "destructure-html",
   "version": "1.0.0",
   "description": "destructure-html simplifies HTML element deconstruction and data extraction, making it effortless to extract desired information from complex HTML structures with its intuitive syntax and powerful features.",
-  "main": "build/index.js",
-  "type": "module",
+  "main": "index.ts",
   "scripts": {
     "dev": "ts-node index.ts",
-    "dev-traverse": "ts-node return-html/Traverse/index.ts",
+    "dev-traverse": "ts-node src/return-html/Traverse/index.ts",
     "compile": "rm -rf build/lib && tsc && tsc --build tsconfig.es5.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
