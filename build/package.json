@@ -1,0 +1,23 @@
+{
+  "name": "destructure-html",
+  "version": "1.0.0",
+  "description": "destructure-html simplifies HTML element deconstruction and data extraction, making it effortless to extract desired information from complex HTML structures with its intuitive syntax and powerful features.",
+  "main": "lib/es5/index.js",
+  "module": "lib/es6/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adxxtya/destructure-html.git"
+  },
+  "author": "Aditya Maurya (adxxtya)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adxxtya/destructure-html/issues"
+  },
+  "homepage": "https://github.com/adxxtya/destructure-html#readme"
+}
