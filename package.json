@@ -21,7 +21,9 @@
   "homepage": "https://github.com/adxxtya/destructure-html#readme",
   "devDependencies": {
     "@types/node": "^20.2.5",
+    "sucrase": "^3.32.0",
     "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }
 }

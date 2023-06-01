@@ -18,7 +18,7 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["../**/*"],
+  "include": ["./**/*"],
   "rules": {
     "indent": ["warn", "tab"],
     "no-unused-vars": ["warn"],

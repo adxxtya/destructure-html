@@ -1,5 +1,6 @@
-import { default as findElementTagByText } from "./Traverse/index";
+import { findTagByClass, findTagByText } from "./Traverse";
 
 export const Traverse = {
-  findElementTagByText,
+  findTagByClass,
+  findTagByText,
 };
