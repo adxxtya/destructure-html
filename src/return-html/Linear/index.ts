@@ -16,7 +16,7 @@ export function getContentBetweenTags(
     } else if (html.substring(i, i + 5) === "</div") {
       closingTagCount++;
       if (closingTagCount === openingTagCount) {
-        const endIndex = i + 6; // Include the closing tag in the result
+        const endIndex = i + 6;
         return html.substring(startIndex, endIndex);
       }
     }

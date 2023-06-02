@@ -18,7 +18,11 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["../**/*"],
+  "exclude": [
+    "build",
+    "test"
+  ],
+  "include": ["./**/*"],
   "rules": {
     "indent": ["warn", "tab"],
     "no-unused-vars": ["warn"],

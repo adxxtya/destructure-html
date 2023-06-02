@@ -1,15 +1,18 @@
-export function findTagByText(data: string, text: string) {
+export function findTagById(data: string, text: string): string | undefined {
   if (data.includes(text)) {
     const startIndex = data.lastIndexOf("<", data.indexOf(text));
     const endIndex = data.indexOf(">", data.indexOf(text)) + 1;
     const extractedText = data.slice(startIndex, endIndex);
-    console.log("Extracted text:", extractedText);
+    return extractedText;
   } else {
-    console.log("The specific text is not found in the data.");
+    throw new Error("The specific text was not found.");
   }
 }
 
-export function findTagByClass(data: string, className: string) {
+export function findTagByClass(
+  data: string,
+  className: string
+): string | number {
   const classIndexes = [];
   let count = 0;
   let elementText = "";

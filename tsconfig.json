@@ -18,6 +18,10 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "exclude": [
+    "build",
+    "test"
+  ],
   "include": ["./**/*"],
   "rules": {
     "indent": ["warn", "tab"],
