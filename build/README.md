@@ -21,7 +21,7 @@ This package
 
 > CommonJS
 
-```
+```javascript
 // commonjs require statement
 const dsh = require('destructure-html')
 
@@ -47,7 +47,7 @@ console.log(getHtmlText);
 
 > ModernJS
 
-```
+```javascript
 // modernjs import statement
 import { findTagById, getContentBetweenTags } from 'destructure-html'
 
@@ -62,7 +62,6 @@ const exampleHtmlData = `
 
 // This will return the whole html Tag with something unique
 // like an ID or unique class that only the div contains 
-
 const htmlTag = findTagById(exampleHtmlData, "continueWatching")
 console.log(htmlTag);
 
@@ -87,7 +86,7 @@ console.log(data);
 
 > CDN package
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +115,7 @@ console.log(data);
 To establish a clearer relationship with the table below, let's consider the following example data.
 
 > Example data (exampleHtmlData)
-```
+```html
 <div class="gray">
     <p>Some text</p>
     <div class="blue">
