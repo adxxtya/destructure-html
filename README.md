@@ -3,7 +3,7 @@
 </div>
 
 
-Before using the package, you can try it out [Live(https://adxxtya.github.io/destructure-html/).
+Before using the package, you can try it out [Live](https://adxxtya.github.io/destructure-html/).
 
 
 
