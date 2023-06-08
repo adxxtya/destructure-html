@@ -3,6 +3,10 @@
 </div>
 
 
+Before using the package, you can try it out [Live(https://adxxtya.github.io/destructure-html/).
+
+
+
 The destructure-html package simplifies HTML deconstruction and data extraction, making it easy to extract information & elements from complex HTML structures.
 
 Install the package:
