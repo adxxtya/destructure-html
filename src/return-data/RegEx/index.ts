@@ -113,7 +113,7 @@ function getContentInBetweenTags(
 // <div class="rdiv">
 // <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=genshin+impact" rel="tag" class="rtags">Genshin Impact</a>
 // <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=video+game" rel="tag" class="rtags">Video Game</a>
-// <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=zhongli+%28genshin+impact%29" rel="tag" class="rtags">Zhongli (Genshin Impact)</a>
+// <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=zhongli+%28genshin+impact%29" rel="ta" class="rtags">Zhongli (Genshin Impact)</a>
 // <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=lumine+%28genshin+impact%29" rel="tag" class="rtags">Lumine (Genshin Impact)</a>
 // <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=paimon+%28genshin+impact%29" rel="tag" class="rtags">Paimon (Genshin Impact)</a>
 // <a itemprop="relatedLink" href="https://www.peakpx.com/en/search?q=keqing+%28genshin+impact%29" rel="tag" class="rtags">Keqing (Genshin Impact)</a>
