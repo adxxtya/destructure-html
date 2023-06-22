@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../dsh-logo-500.svg" alt="logo" style="" />
+  <img src="https://adxxtya.github.io/destructure-html/logo.png" alt="logo" style="" />
 </div>
 <div align="center">
   <h1>Destructure HTML</h1>
