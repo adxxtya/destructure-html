@@ -5,9 +5,6 @@
   <h1>Destructure HTML</h1>
 </div>
 
-<div align="center">
-  <h3>Before using the package, you can try it out <a href="https://adxxtya.github.io/destructure-html/">Live</a> </h3>
-</div>
 
 <p align="center" style="line-height: 2;">
   <a href="https://www.npmjs.com/package/destructure-html" target="_blank"><img src="https://img.shields.io/npm/v/destructure-html.svg?style=flat-square&color=007acc&label=version&logo=NPM" alt="version" /></a>
@@ -15,6 +12,11 @@
     <a href="https://www.npmjs.com/adxxtya/destructure-html" target="_blank"><img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/destructure-html.svg?style=flat-square&label=%F0%9F%92%BE%20gzipped&color=007acc" /></a>
     <a href="https://github.com/adxxtya/destructure-html/blob/master/LICENSE" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/license/adxxtya/destructure-html.svg?style=flat-square&label=%F0%9F%93%9C%20license&color=08CE5D" /></a>
 </p>
+
+<div align="center">
+  <h3>Before using the package, you can try it out <a href="https://adxxtya.github.io/destructure-html/">Live</a> </h3>
+</div>
+
 
 The destructure-html is a lightweight package that simplifies HTML deconstruction and data extraction, making it easy to extract information & elements from complex HTML structures.
 
@@ -116,7 +118,7 @@ console.log(htmlTag);
 
 ---
 
-### What to use When && When to use What
+### ✂️ What to use When && When to use What
 
 To establish a clearer relationship with the table below, let's consider the following example data.
 
@@ -177,7 +179,7 @@ By contributing to destructure-html, you help improve the package and make it mo
 
 ---
 
-### Contact me 
+### 📲 Contact me 
 
 If you have any questions, feedback, or need support with destructure-html, you can reach out to me through the following channels:
 
