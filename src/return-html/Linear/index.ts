@@ -1,26 +1,24 @@
+import { findTagById } from "../Traverse";
+
 export function getContentBetweenTags(
   html: string,
   openingTag: string
 ): string {
   let openingTagCount = 0;
   let closingTagCount = 0;
-  const openingTagElement = openingTag.split(" ")[0].substring(1); // Extract the opening tag element from the provided openingTag parameter
-  const openingTagStart = `<${openingTagElement}`;
-  const openingTagEnd = `</${openingTagElement}`;
-
-  let startIndex = html.indexOf(openingTagStart);
+  let startIndex = html.indexOf(openingTag);
 
   if (startIndex === -1) {
     throw new Error("Opening tag not found in HTML data.");
   }
 
   for (let i = startIndex; i < html.length; i++) {
-    if (html.substring(i, i + openingTagStart.length) === openingTagStart) {
+    if (html.substring(i, i + 4) === "<div") {
       openingTagCount++;
-    } else if (html.substring(i, i + openingTagEnd.length) === openingTagEnd) {
+    } else if (html.substring(i, i + 5) === "</div") {
       closingTagCount++;
       if (closingTagCount === openingTagCount) {
-        const endIndex = i + openingTagEnd.length;
+        const endIndex = i + 6; // Include the closing tag in the result
         return html.substring(startIndex, endIndex);
       }
     }
@@ -69,7 +67,17 @@ export function getContentInBetweenTags(
 }
 
 export function getContentById(html: string, id: string): string {
-  const idIndex = html.indexOf(`id="${id}"`);
+  const helper = findTagById(html, id);
+
+  if (helper === undefined) {
+    throw new Error(`Element with ID "${id}" not found in HTML data.`);
+  }
+
+  return getContentBetweenTags(html, helper);
+}
+
+export function getContentByUniqueText(html: string, id: string): string {
+  const idIndex = html.indexOf(`"${id}"`);
 
   if (idIndex === -1) {
     throw new Error(`Element with ID "${id}" not found in HTML data.`);

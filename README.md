@@ -1,27 +1,38 @@
 <div align="center">
+  <img src="./dsh-logo.svg" alt="logo" style="" />
+</div>
+<div align="center">
   <h1>Destructure HTML</h1>
 </div>
 
+<div align="center">
+  <h3>Before using the package, you can try it out <a href="https://adxxtya.github.io/destructure-html/">Live</a> </h3>
+</div>
 
-Before using the package, you can try it out [Live](https://adxxtya.github.io/destructure-html/).
+<p align="center" style="line-height: 2;">
+  <a href="https://www.npmjs.com/package/destructure-html" target="_blank"><img src="https://img.shields.io/npm/v/destructure-html.svg?style=flat-square&color=007acc&label=version&logo=NPM" alt="version" /></a>
+  <a href="https://www.npmjs.com/adxxtya/destructure-html" target="_blank"><img alt="npm weekly downloads" src="https://img.shields.io/npm/dw/destructure-html?logo=npm&style=flat-square&color=007acc" /></a>
+    <a href="https://www.npmjs.com/adxxtya/destructure-html" target="_blank"><img alt="npm bundle size (scoped)" src="https://img.shields.io/bundlephobia/minzip/destructure-html.svg?style=flat-square&label=%F0%9F%92%BE%20gzipped&color=007acc" /></a>
+    <a href="https://github.com/adxxtya/destructure-html/blob/master/LICENSE" target="_blank"><img alt="GitHub" src="https://img.shields.io/github/license/adxxtya/destructure-html.svg?style=flat-square&label=%F0%9F%93%9C%20license&color=08CE5D" /></a>
+</p>
 
-
-
-The destructure-html package simplifies HTML deconstruction and data extraction, making it easy to extract information & elements from complex HTML structures.
+The destructure-html is a lightweight package that simplifies HTML deconstruction and data extraction, making it easy to extract information & elements from complex HTML structures.
 
 Install the package:
 
-```npm i -g destructure-html```
+> npm i destructure-html
+
 
 This package 
 - was created to extract relevant information seamlessly from scraped data
 - enables destructuring data which is in the form of html
+- constructs data in any form from raw html
 
 **New features will be consistently updated and released on a regular basis.**
 
 ---
 
-### How to use
+### 🏃 Quick Start
 
 > CommonJS
 
@@ -38,22 +49,25 @@ const htmlData = `
 `;
 
 
-// This will return an array of texts from the html content
-
-const getHtmlText = dsh.findNestedTexts(htmlData)
+// This will return an array of src values which may containt images or other important data from the html content
+const getHtmlText = dsh.grabSrcValues(htmlData)
 console.log(getHtmlText);
 
 
-// output: [ 'TV Shows', 'Suits', 'Cowboy Bebop', ...
-//    'Continue Watching for Aditya', 'Rick and Morty', ...
-//    'Selected for You Today', 'The Office (U.S.)' ... ]
+
+// output: [
+//  'https://occ-0-1947-2164.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaJ71EC0meuaQJkcwU3H1IVx-9PSbCQ-1vzPySh7k3264YotnvQ9lQmPQP_S_cb95GRP9lUkJsTlkmGcIpqXspMai9q5C_2Mq-k.jpg?r=183',
+  .
+  .
+  .
+//  'https://occ-0-1947-2164.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeo26eQTyK5t9xceCCE86N3JsqgZ2eCMMsHxyBzGx8UTvD8-aHTe6EAtYMbn5R4gfMWLRNbUhOZZljpBjZ8zTIiPJjt3L-3TWyKv-5fSvooKuS0sLg0v0oT9--ay1HFx3MU3.jpg?r=438' ]
 ```
 
 > ModernJS
 
 ```javascript
 // modernjs import statement
-import { findTagById, getContentBetweenTags } from 'destructure-html'
+import { getContentByUniqueText } from 'destructure-html'
 
 
 // scraped data from netflix
@@ -64,28 +78,16 @@ const exampleHtmlData = `
 `;
 
 
-// This will return the whole html Tag with something unique
-// like an ID or unique class that only the div contains 
-const htmlTag = findTagById(exampleHtmlData, "continueWatching")
+// This will return the whole html content from the starting of the tag with a unique text
+// like an unique class or other attribute that only the div contains in the whole page
+const htmlTag = getContentByUniqueText(html, "continueWatching")
 console.log(htmlTag);
 
-
-// output:  <div class="lolomoRow ltr-0" data-context="continueWatching">
-
-
-// The previous output can now be used to find the texts
-// only between the opening and closing tag 
-
-const data = getContentBetweenTags(exampleHtmlData, htmlTag)
-console.log(data);
 
 
 // output: <div class="lolomoRow ltr-0" data-context="continueWatching"><h2 
 // class="title">Continue Watching for Aditya</div><div class="aro - row 
-// - header more - visible"><div><di ... div></div></div></div></div >
-
-
-// This can be now used with findNestedTexts() to get all the required text within
+// - header more - visible"><div><di ... div></div></div></div></div>
 ```
 
 > CDN package
@@ -118,15 +120,24 @@ console.log(data);
 
 To establish a clearer relationship with the table below, let's consider the following example data.
 
-> Example data (exampleHtmlData)
+> Example data (htmlData)
+
+
+const htmlData = 
 ```html
 <div class="gray">
     <p>Some text</p>
-    <div class="blue">
+    <div class="blue" id="blue-div">
       <div>More text</div>
+      <a href="https://lorem-ipsum.com/browse/69">
+        <img src="https://placeholder.com/first.png" alt="" />
+      </a>
     </div>
     <div class="blue">
       <div>Some More text</div>
+      <a href="https://lorem-ipsum.com/browse/420">
+        <img src="https://placeholder.com/second.png" alt="" />
+      </a>    
     </div>
 </div>
 <div>
@@ -134,19 +145,22 @@ To establish a clearer relationship with the table below, let's consider the fol
 </div>
 ```
 
-Scroll Right to view more columns >>>
+
 
 | Functions | Parameter(s) | Parameter Example | Output | Takes | Returns |
 | --- | --- | --- | --- | --- | --- |
-| `findTagById()` | htmlData,<br>uniqueId | `findTagById(exampleHtmlData, "gray");` | `<div class="blue">` | The first parameter is the html data you want to be searched through <br> Secondly, a unique text that is only available in that html tag (can be anything, like "gray" here is only available once in the whole data). | The whole html **opening tag**, but doesn't provide the content and closing tag. |
-| `findTagByClass()` | htmlData,<br>className | `const htmlTag = findTagByClass(exampleHtmlData, "blue");` | 2 | The first parameter is again the html data you want the data to be extracted from <br> Second parameter is the class name used for styling the html. | If there is a single html tag with the className provided, it returns a string of the whole html tag like "findTagById()" function, but if there are more than one html tag with the same class it returns the total number of times the class is being repeated. |  
-| `findTagByClass()` | htmlData,<br>className | `const htmlTag = findTagByClass(exampleHtmlData, "gray");` | `<div class="gray">` | The first parameter is the html data you want the data to be extracted from <br> Second parameter is the class name used for styling the html. | If there is a single html tag with the className provided, it returns a string of the whole html tag like "findTagById()" function, but if there are more than one html tag with the same class it returns the total number of times the class is being repeated. |  
-| `getContentBetweenTags()` | htmlData,<br>openingTag | ```const htmlContent = getContentBetweenTags(exampleHtmlData, `<div class="gray">`);``` | &lt;div class="gray"&gt;<br>  &lt;p&gt;Some text&lt;/p&gt;<br>  &lt;div class="blue"&gt;<br>  &lt;div&gt;More text&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class="blue"&gt;<br>  &lt;div&gt;Some More text&lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt; | The first parameter is the data to be searched from and the second parameter is whole div tag (this div tag can be obtained from either findTagById() or findTagByClass()). | This function returns all the html content starting **from the opening tag, with all the content in the middle till the closing tag**. |  
-| `findNestedTexts()` | htmlData | `const htmlText = findNestedTexts(exampleHtmlData);` | [ 'Some text', 'More text', 'Some More text', 'Another paragraph' ] | There is only one parameter which is the whole html data you got. | This will return an array with all the text at different places in the data. |
- 
+| `grabHrefValues()` | html <br> (string) | `grabHrefValues(htmlData);` | [ <br>'https://lorem-ipsum.com/browse/69',<br> 'https://lorem-ipsum.com/browse/420' <br>] | Accepts the HTML data as a parameter. | Returns an array of all href values found in the provided input. |
+| `grabSrcValues()` | html <br> (string) | `grabSrcValues(htmlData);` | [ <br>'https://placeholder.com/first.png',<br> 'https://placeholder.com/second.png' <br>] | Accepts the HTML data as a parameter. | Returns an array of all src values found in the provided input. |
+| `findNestedTexts()` | html <br> (string) | `const htmlText = findNestedTexts(exampleHtmlData);` | [ 'Some text', 'More text', 'Some More text', 'Another paragraph' ] | Accepts the complete HTML data as a parameter. | Returns an array containing all the text found at different locations within the HTML data. |
+| `getContentById()` | html (string), <br> id (string) | `const htmlContent = getContentById(exampleHtmlData, "blue-div");` | &lt;div class="blue" id="blue-div"&gt;<br>&lt;div&gt;More text&lt;/div&gt;<br>&lt;a href="https://lorem-ipsum.com/browse/69"&gt;!\[alt\](https//placeholder.com/first.png)&lt;/a&gt;<br>&lt;/div&gt;| Important: The ID should be a unique identifier present only within this element. Accepts the HTML data and a unique ID as parameters. | Returns the entire HTML content of the specified element, including its tags and inner content, which can be used to extract text or other relevant data later. |
+| `findTagById()` | htmlData,<br>uniqueId | `findTagById(exampleHtmlData, "gray");` | `<div id="gray">` | Accepts the HTML data and a unique text identifier present within the HTML tag as parameters. | Returns the complete opening tag of the HTML element matching the specified ID, without its content or closing tag. |
+| `findTagByClass()` | htmlData,<br>className | `const htmlTag = findTagByClass(exampleHtmlData, "blue");` | 2 | Accepts the HTML data and a class name used for styling as parameters. | If there is a single HTML tag with the provided class name, it returns a string containing the entire HTML tag similar to the findTagById() function. If there are multiple HTML tags with the same class, it returns the total count of occurrences. |  
+| `getContentBetweenTags()` | htmlData,<br>openingTag | ```const htmlContent = getContentBetweenTags(exampleHtmlData, `<div class="gray">`);``` | &lt;div class="gray"&gt;<br>  &lt;p&gt;Some text&lt;/p&gt;<br>  &lt;div class="blue"&gt;<br>  &lt;div&gt;More text&lt;/div&gt;<br>  &lt;/div&gt;<br>  &lt;div class="blue"&gt;<br>  &lt;div&gt;Some More text&lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt; | Accepts the HTML data and the complete opening tag of a div element (obtained from either findTagById() or findTagByClass()) as parameters. | Returns all the HTML content starting from the specified opening tag, including all content within until the closing tag. |  
+
+
 ---
 
-### Contributing
+### 🙌 Contributing
 
 Contributions to destructure-html are welcome and encouraged! To contribute to the project, follow these steps:
 
