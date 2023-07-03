@@ -1,42 +1,19 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./src/return-html"), exports);
-__exportStar(require("./src/return-data"), exports);
-const return_html_1 = require("src/return-html");
-const htmlData = `
-<div class="gray">
-    <p>Some text</p>
-    <div class="blue" id="blue-div">
-      <div>More text</div>
-      <a href="https://lorem-ipsum.com/browse/69">
-        <img src="https://placeholder.com/first.png" alt="" />
-      </a>
-    </div>
-    <div class="blue">
-      <div>Some More text</div>
-      <a href="https://lorem-ipsum.com/browse/420">
-        <img src="https://placeholder.com/second.png" alt="" />
-      </a>    
-    </div>
-</div>
-<div>
-    <p>Another paragraph</p>
-</div>
-`;
-const api = (0, return_html_1.getContentById)(htmlData, `<div class="blue" id="blue-div">`);
-console.log(api);
+exports.grabSrcValuesWithTagAndEndString = exports.grabSrcValuesWithTag = exports.grabSrcValues = exports.grabHrefValuesWithTagAndEndString = exports.grabHrefValuesWithTag = exports.grabHrefValues = exports.findNestedTexts = exports.getContentInBetweenTags = exports.getContentByUniqueText = exports.getContentById = exports.getContentBetweenTags = exports.findTagById = exports.findTagByClass = void 0;
+var return_html_1 = require("./src/return-html");
+Object.defineProperty(exports, "findTagByClass", { enumerable: true, get: function () { return return_html_1.findTagByClass; } });
+Object.defineProperty(exports, "findTagById", { enumerable: true, get: function () { return return_html_1.findTagById; } });
+Object.defineProperty(exports, "getContentBetweenTags", { enumerable: true, get: function () { return return_html_1.getContentBetweenTags; } });
+Object.defineProperty(exports, "getContentById", { enumerable: true, get: function () { return return_html_1.getContentById; } });
+Object.defineProperty(exports, "getContentByUniqueText", { enumerable: true, get: function () { return return_html_1.getContentByUniqueText; } });
+Object.defineProperty(exports, "getContentInBetweenTags", { enumerable: true, get: function () { return return_html_1.getContentInBetweenTags; } });
+var return_data_1 = require("./src/return-data");
+Object.defineProperty(exports, "findNestedTexts", { enumerable: true, get: function () { return return_data_1.findNestedTexts; } });
+Object.defineProperty(exports, "grabHrefValues", { enumerable: true, get: function () { return return_data_1.grabHrefValues; } });
+Object.defineProperty(exports, "grabHrefValuesWithTag", { enumerable: true, get: function () { return return_data_1.grabHrefValuesWithTag; } });
+Object.defineProperty(exports, "grabHrefValuesWithTagAndEndString", { enumerable: true, get: function () { return return_data_1.grabHrefValuesWithTagAndEndString; } });
+Object.defineProperty(exports, "grabSrcValues", { enumerable: true, get: function () { return return_data_1.grabSrcValues; } });
+Object.defineProperty(exports, "grabSrcValuesWithTag", { enumerable: true, get: function () { return return_data_1.grabSrcValuesWithTag; } });
+Object.defineProperty(exports, "grabSrcValuesWithTagAndEndString", { enumerable: true, get: function () { return return_data_1.grabSrcValuesWithTagAndEndString; } });
 //# sourceMappingURL=index.js.map
